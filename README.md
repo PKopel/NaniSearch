@@ -1,2 +1,2 @@
 # NaniSaerch
-text game based on "Adventure in Prolog" tutorial
+Text game based on ["Adventure in Prolog"](https://www.amzi.com/AdventureInProlog/index.php) tutorial.
