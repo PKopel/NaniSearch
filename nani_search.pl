@@ -2,6 +2,8 @@
 :- use_module(places).
 :- use_module(data).
 :- use_module(utils).
+:- use_module(language_parser).
+
 
 :- op(600, fx, goto).
 :- op(600, fx, go).
@@ -39,7 +41,6 @@ start:-
     repeat,
     write('--------------'),nl,
     look,
-    write('> '),
-    read(X),
+    get_command(X),
     do(X), nl,
     end_condition(X).
