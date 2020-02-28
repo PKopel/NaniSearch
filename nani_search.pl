@@ -36,11 +36,16 @@ end_condition(_) :-
   have(object(nani,_,_)),
   write('Congratulations').
 
+execute([]).
+execute([C|CL]):-
+  do(C),nl,
+  execute(CL).
+
 start:- 
     write('Welcome to Nani Search'), nl,
     repeat,
     write('--------------'),nl,
     look,
-    get_command(X),
-    do(X), nl,
+    get_commands(X),
+    execute(X),
     end_condition(X).

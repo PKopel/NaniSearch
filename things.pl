@@ -3,6 +3,11 @@
 :- use_module(data).
 :- use_module(utils).
 
+eat(X):-
+    have(object(X,_,_)),
+    edible(X),
+    respond([X, " eaten"]).
+
 take(X):-  
     can_take(X),
     take_object(X).

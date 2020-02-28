@@ -1,12 +1,23 @@
-:- module(language_parser,[get_command/1]).
+:- module(language_parser,[get_commands/1,get_commands/3]).
 :- use_module(data).
 
-get_command(C) :-
-  read_list(L),
-  command(CL,L,[]),
-  C =..  CL, !.
-get_command(_) :-
+get_commands(CL) :-
+  read_list(WL),
+  get_commands(CL,WL,[]).
+get_commands(_) :-
   write('I don''t understand'), nl, fail.
+
+get_commands([C|_], [], CWL):-
+  reverse(CWL,L),
+  command(CP, L, []),
+  C =..  CP, !.
+get_commands([C|CL], [and|WL], CWL):-
+  reverse(CWL,L),
+  command(CP, L, []),
+  C =..  CP, !,
+  get_commands(CL, WL, []).
+get_commands(CL, [W|WL], CWL):-
+  get_commands(CL, WL, [W|CWL]).
 
 command([end],[end|_],_).
 command([goto, Place]) --> noun(place, Place).
@@ -16,6 +27,10 @@ command([V,O]) -->
   
 verb(place, goto) --> [go, to].
 verb(thing, take) --> [take].
+verb(thing, leave) --> [leave].
+verb(thing, turn_on) --> [turn, on].
+verb(thing, turn_off) --> [turn, off].
+verb(thing, eat) --> [eat].
   
 object(Type, N) --> det, noun(Type, N).
 object(Type, N) --> noun(Type, N).
