@@ -3,7 +3,8 @@
 
 get_commands(CL) :-
   read_list(WL),
-  get_commands(CL,WL,[]).
+  get_commands(CL,WL,[]),
+  !.
 get_commands(_) :-
   write('I don''t understand'), nl, fail.
 

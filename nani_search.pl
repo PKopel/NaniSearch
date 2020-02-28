@@ -36,9 +36,9 @@ end_condition(_) :-
   have(object(nani,_,_)),
   write('Congratulations').
 
-execute([]).
+execute([]):- !.
 execute([C|CL]):-
-  do(C),nl,
+  do(C),nl,!,
   execute(CL).
 
 start:- 
