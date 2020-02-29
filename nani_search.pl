@@ -31,11 +31,12 @@ do(end).
 do(_):-
   write('Invalid command').
 
-end_condition(end).
+end_condition([end]).
 end_condition(_) :-
   have(object(nani,_,_)),
   write('Congratulations').
 
+execute([end]).
 execute([]):- !.
 execute([C|CL]):-
   do(C),nl,!,

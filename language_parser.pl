@@ -21,6 +21,7 @@ get_commands(CL, [W|WL], CWL):-
   get_commands(CL, WL, [W|CWL]).
 
 command([end],[end|_],_).
+command([look],[look|_],_).
 command([goto, Place]) --> noun(place, Place).
 command([V,O]) --> 
     verb(Object_Type, V), 
