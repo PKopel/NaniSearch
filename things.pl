@@ -1,12 +1,26 @@
-:- module(things,[take/1,leave/1,turn_on/1,turn_off/1]).
+:- module(things,[eat/1,take/1,leave/1,turn_on/1,turn_off/1]).
 :- use_module(places).
 :- use_module(data).
 :- use_module(utils).
 
+
+:- op(600, fx, take).
+:- op(600, fx, leave).
+:- op(600, fx, turn_on).
+:- op(600, fx, turn_off).
+:- op(600, fx, eat).
+
+
+eat(X):-
+    have(object(X,Size,Color)),
+    edible(X),
+    retract(have(object(X,Size,Color))),
+    respond([X, " eaten"]).
 eat(X):-
     have(object(X,_,_)),
-    edible(X),
-    respond([X, " eaten"]).
+    respond(["You can't eat ", X]).
+eat(X):-
+    respond(["You don't have ", X]).
 
 take(X):-  
     can_take(X),

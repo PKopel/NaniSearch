@@ -4,6 +4,11 @@
 :- use_module(puzzles).
 :- use_module(utils).
 
+
+:- op(600, fx, goto).
+:- op(600, fx, go).
+
+
 goto(Thing):-
     here(Room),
     location(object(Thing,_,_),Room),

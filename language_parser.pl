@@ -23,11 +23,13 @@ get_commands(CL, [W|WL], CWL):-
 command([end],[end|_],_).
 command([look],[look|_],_).
 command([goto, Place]) --> noun(place, Place).
+command([goto, Thing]) --> noun(thing, Thing).
 command([V,O]) --> 
     verb(Object_Type, V), 
     object(Object_Type, O).
   
 verb(place, goto) --> [go, to].
+verb(thing, goto) --> [go, to].
 verb(thing, take) --> [take].
 verb(thing, leave) --> [leave].
 verb(thing, turn_on) --> [turn, on].
@@ -42,7 +44,7 @@ det --> [a].
   
 noun(place,X) --> [X], {room(X)}.
 noun(place,'dining room') --> [dining, room].
-noun(thing,X) --> [X], {location(X,_)}.
+noun(thing,X) --> [X], {thing(X)}.
 
 read_list(L) :-
     write('> '),

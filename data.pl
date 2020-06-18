@@ -1,4 +1,4 @@
-:- module(data,[room/1,location/2,connect/3,turned_off/1,turned_on/1,here/1,near/1,have/1,edible/1]).
+:- module(data,[room/1,thing/1,location/2,connect/3,turned_off/1,turned_on/1,here/1,near/1,have/1,edible/1]).
 :- dynamic have/1.
 :- dynamic here/1.
 :- dynamic near/1.
@@ -11,6 +11,18 @@ room(office).
 room(hall).
 room('dining room').
 room(cellar).
+
+thing(apple).
+thing(broccoli).
+thing(crackers).
+thing(computer).
+thing(desk).
+thing(envelope).
+thing(flashlight).
+thing(key).
+thing(nani).
+thing('washing machine').
+thing(stamp).
 
 location(object(desk,big,brown), office).
 location(object(apple,small,green), kitchen).

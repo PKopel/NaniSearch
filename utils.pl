@@ -21,12 +21,13 @@ list_things(Place,In) :-
     ( location(_,X) -> list_things(X,NIn)
     ; otherwise -> fail
     ).
-list_things(_,_).
+list_things(_,2).
 
 
 inventory:- 
     have(object(X,Size,Color)),
-    ( turned_on(X) -> respond(["You have ",Size,", ",Color," ",X,"(","turned on",")"])
+    ( turned_on(X) -> respond(["You have ",Size,", ",Color," ",X,"(turned on)"])
+    ; turned_off(X) -> respond(["You have ",Size,", ",Color," ",X,"(turned off)"])
     ; otherwise -> respond(["You have ",Size,", ",Color," ",X])
     ).
 inventory:-
