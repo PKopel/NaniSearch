@@ -3,7 +3,6 @@ MAIN_FILE=nani_search.pl
 EXEC_FILE=nani_search.o
 BUILD_DIR=build
 SRC_DIR=src
-IMAGE=swipl-rest-example
 
 dev:
 	swipl -s $(SRC_DIR)/$(MAIN_FILE)
