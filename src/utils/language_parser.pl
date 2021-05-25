@@ -1,5 +1,5 @@
 :- module(language_parser,[get_commands/1,get_commands/3]).
-:- use_module(data).
+:- use_module('..'/data/data).
 
 get_commands(CL) :-
   read_list(WL),

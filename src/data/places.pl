@@ -2,7 +2,7 @@
 :- use_module(data).
 :- use_module(things).
 :- use_module(puzzles).
-:- use_module(utils).
+:- use_module('..'/utils/utils).
 
 
 :- op(600, fx, goto).

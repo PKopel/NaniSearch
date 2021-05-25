@@ -1,5 +1,5 @@
 :- module(utils,[respond/1,inventory/0,list_things/2,list_connections/1]).
-:- use_module(data).
+:- use_module('..'/data/data).
 
 respond([]):-
     nl.

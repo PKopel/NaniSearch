@@ -1,7 +1,7 @@
 :- module(puzzles,[puzzle/1]).
 :- use_module(things).
 :- use_module(data).
-:- use_module(utils).
+:- use_module('..'/utils/utils).
 
 puzzle(cellar):-
     have(object(flashlight,_,_)),

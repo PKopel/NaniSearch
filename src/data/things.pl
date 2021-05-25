@@ -1,7 +1,7 @@
 :- module(things,[eat/1,take/1,leave/1,turn_on/1,turn_off/1]).
 :- use_module(places).
 :- use_module(data).
-:- use_module(utils).
+:- use_module('..'/utils/utils).
 
 
 :- op(600, fx, take).

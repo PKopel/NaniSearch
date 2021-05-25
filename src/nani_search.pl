@@ -1,8 +1,8 @@
-:- use_module(things).
-:- use_module(places).
-:- use_module(data).
-:- use_module(utils).
-:- use_module(language_parser).
+:- use_module(data/things).
+:- use_module(data/places).
+:- use_module(data/data).
+:- use_module(utils/utils).
+:- use_module(utils/language_parser).
     
 look :-
     here(Room),
